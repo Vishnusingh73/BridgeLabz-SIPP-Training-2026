@@ -2,15 +2,14 @@ import java.util.*;
 
 public class NullPointerExceptionDemo {
     
-    // Method to generate NullPointerException
+   
     public static void generateNullPointerException() {
         System.out.println("--- Demonstrating NullPointerException (will crash) ---");
         String text = null;
         System.out.println("Calling length() on null string:");
-        System.out.println(text.length());  // This will throw NullPointerException
+        System.out.println(text.length());
     }
     
-    // Method to handle NullPointerException
     public static void handleNullPointerException() {
         System.out.println("--- Handling NullPointerException with try-catch ---");
         try {

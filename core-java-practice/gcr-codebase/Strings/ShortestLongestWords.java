@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ShortestLongestWords {
     
-    // Method to find string length without using length() method
+    
     public static int findLength(String str) {
         int count = 0;
         try {
@@ -11,18 +11,18 @@ public class ShortestLongestWords {
                 count++;
             }
         } catch (StringIndexOutOfBoundsException e) {
-            // Exception thrown when index out of bounds
+           
         }
         return count;
     }
     
-    // Method to split text into words using charAt() without using built-in split()
+  
     public static String[] splitTextIntoWords(String text) {
         int stringLength = findLength(text);
         int wordCount = 0;
         int[] spaceIndexes = new int[stringLength];
         
-        // Find all space positions
+      
         for (int i = 0; i < stringLength; i++) {
             if (text.charAt(i) == ' ') {
                 spaceIndexes[wordCount] = i;
@@ -30,27 +30,26 @@ public class ShortestLongestWords {
             }
         }
         
-        // Total words = number of spaces + 1
         int totalWords = wordCount + 1;
         String[] words = new String[totalWords];
         
         int startIndex = 0;
         int wordIndex = 0;
         
-        // Extract words using space indexes
+      
         for (int i = 0; i < wordCount; i++) {
             words[wordIndex] = text.substring(startIndex, spaceIndexes[i]);
             startIndex = spaceIndexes[i] + 1;
             wordIndex++;
         }
         
-        // Extract the last word
+        
         words[wordIndex] = text.substring(startIndex);
         
         return words;
     }
     
-    // Method to create 2D array with word and its length
+   
     public static String[][] getWordsWithLengths(String[] words) {
         String[][] result = new String[words.length][2];
         
@@ -62,7 +61,7 @@ public class ShortestLongestWords {
         return result;
     }
     
-    // Method to find shortest and longest strings
+  
     public static int[] findShortestLongestIndex(String[][] wordsWithLengths) {
         int[] result = new int[2]; // [shortestIndex, longestIndex]
         int shortestLength = Integer.parseInt(wordsWithLengths[0][1]);
